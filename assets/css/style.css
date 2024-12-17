@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(48, 48, 48);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #ffff;
+ 
+  font-family: 'Poppins', sans-serif;
+}
+
+.M_todo-app {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 8px rgba(34, 226, 215, 1), 
+              0 6px 12px rgba(130, 210, 212, 0.3);
+  animation: borderAnimation 3s infinite alternate;
+  max-width: 400px;
+  max-height: 100vh;
+}
+
+@keyframes borderAnimation {
+  0% {
+    border-color: rgba(0, 128, 0, 0);
+  }
+  50% {
+    border-color: rgba(34, 226, 215, 1);
+  }
+  100% {
+    border-color: rgba(0, 128, 0, 0);
+  }
+}
+
+.todo-app {
+ width: 345px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  position: relative;
+  right: 22px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4), 
+  -10px -10px 15px rgba(30, 30, 30, 0.8), 
+  -2px 5px 15px rgba(23, 23, 23, 0.9) inset;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+#clockContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 5px solid transparent; 
+  backdrop-filter: blur(10px); 
+  border-radius: 50%;
+  margin: 0 auto;
+  background: rgba(77, 77, 77, 0.2); 
+  animation: borderAnimation 3s infinite linear;
+  background: linear-gradient(45deg, rgba(231, 168, 247, 0.2), rgba(202, 144, 198, 0.2)); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(57, 21, 66, 0.3);
+}
+
+.clock-number {
+  position: absolute;
+  font-weight: bold;
+  color: #fafafa;
+  transform: translate(-50%, -50%);
+}
+
+.minute-tick {
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background-color: #5f5785;
+  transform-origin: bottom center;
+}
+
+.hour-hand, .minute-hand, .second-hand {
+  position: absolute;
+  background-color: #333;
+  transform-origin: bottom;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hour-hand {
+  width: 4px;
+  height: 30%;
+  bottom: 50%;
+  transform: rotate(0deg);
+  background-color: rgba(34, 226, 215, 1);
+}
+
+.minute-hand {
+  width: 3px;
+  height: 40%;
+  bottom: 50%;
+  transform: rotate(0deg);
+  background-color:rgba(34, 226, 215, 1);
+}
+
+.second-hand {
+  width: 2px;
+  height: 45%;
+  bottom: 50%;
+  background-color: red;
+  transform: rotate(0deg);
+}
+
+.input-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.input-section input[type="text"] {
+  padding: 12px;
+  border: none;
+  background-color: #444;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 30px;
+}
+
+.input-section button {
+  margin-left: 10px;
+  padding: 12px 18px;
+  border: none;
+  background-color: #555;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.input-section button:hover {
+  background-color: #555;
+  border: 1px solid #fff;
+}
+
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+
+}
+.select-checkbox {
+  margin-left: 10px;
+}
+
+
+#todoList button {
+  margin-left: 10px;
+}
+
+.not-found {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+}
+
+.delete-selected-container {
+  text-align: center;
+  margin-top: 15px;
+}
+/* Ensure the todo list has a fixed height and allows scrolling */
+.todos {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-top: 20px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 9px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.todo-item span {
+  color: #fff;
+  margin-left: 5px;
+  font-size: 15px;  
+}
+
+.todo-item.completed span {
+  text-decoration: line-through;
+  color: #bbb;
+}
+
+.todo-item button {
+  margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.todo-item button:hover {
+  color: #ddd;
+}
+
+.not-found {
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* Style for custom scrollbar */
+.todos::-webkit-scrollbar {
+  width: 8px;
+}
+
+.todos::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.todos::-webkit-scrollbar-thumb {
+  background-color: rgba(34, 226, 215, 1);
+  border-radius: 10px;
+}
+
+.todos::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(34, 226, 215, 0.8);
+}
+
